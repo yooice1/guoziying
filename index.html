@@ -1,25 +1,24 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>郭紫莹的个人网站 | 生活与作品集</title>
-  <!-- 样式资源 -->
+  <title>我的生活照 | 郭紫莹</title>
+  <!-- 复用样式 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- 自定义样式 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2c3e50', // 主色调：沉稳蓝
+            primary: '#2c3e50',
             secondary: '#7f8c8d',
-            accent: '#3498db', // 强调色：清新蓝
+            accent: '#3498db',
           },
           fontFamily: {
             inter: ['Inter', 'sans-serif'],
@@ -31,142 +30,25 @@
   
   <style type="text/tailwindcss">
     @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .text-balance {
-        text-wrap: balance;
-      }
       .photo-hover {
-        @apply transition-all duration-500 ease-in-out;
-      }
-      .photo-hover:hover {
-        @apply transform scale-[1.03] shadow-xl;
+        @apply transition-all duration-500 ease-in-out hover:scale-[1.03] shadow-xl;
       }
     }
   </style>
 </head>
 
-<body class="font-inter bg-white text-primary antialiased">
-  <!-- 二级导航栏（核心） -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm py-4" id="navbar">
-    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-      <!-- 网站标题 -->
-      <a href="/guoziying/" class="text-2xl font-semibold tracking-tight text-accent">郭紫莹的个人主页</a>
-      
-      <!-- 桌面端二级导航 -->
-      <nav class="hidden md:flex space-x-8">
-        <a href="#about" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">关于我</a>
-        <a href="#works" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">作品集</a>
-        <a href="#life" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">生活照</a>
-        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">联系我</a>
-      </nav>
-      
-      <!-- 移动端菜单按钮 -->
-      <button class="md:hidden text-primary focus:outline-none" id="menuBtn">
-        <i class="fa fa-bars text-xl"></i>
-      </button>
-    </div>
-    
-    <!-- 移动端二级导航 -->
-    <div class="md:hidden hidden bg-white absolute w-full left-0 py-4 shadow-lg" id="mobileMenu">
-      <div class="container mx-auto px-4 flex flex-col space-y-3">
-        <a href="#about" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">关于我</a>
-        <a href="#works" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">作品集</a>
-        <a href="#life" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">生活照</a>
-        <a href="#contact" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">联系我</a>
-      </div>
-    </div>
-  </header>
+<body class="font-inter bg-white text-primary antialiased pt-20">
+  <!-- 返回首页按钮 -->
+  <div class="container mx-auto px-4 md:px-8 py-4">
+    <a href="/guoziying/" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
+      <i class="fa fa-arrow-left mr-2"></i> 返回首页
+    </a>
+  </div>
 
-  <!-- 首页英雄区 -->
-  <section class="h-screen flex items-center justify-center overflow-hidden relative bg-gradient-to-r from-accent/5 to-primary/5">
-    <div class="absolute inset-0 z-0">
-      <img src="https://picsum.photos/id/1005/1920/1080" alt="背景图" class="w-full h-full object-cover object-center opacity-20">
-    </div>
-    <div class="container mx-auto px-4 relative z-10 text-center">
-      <h1 class="text-[clamp(2rem,7vw,4rem)] font-light text-primary leading-tight mb-6 tracking-tighter">
-        郭紫莹 <span class="text-accent font-semibold">生活与创作</span>
-      </h1>
-      <p class="text-[clamp(1rem,3vw,1.25rem)] text-secondary max-w-2xl mx-auto mb-10 text-balance">
-        记录生活美好瞬间，展示设计创作成果
-      </p>
-      <a href="#works" class="inline-block bg-accent text-white px-8 py-3 rounded-md text-sm uppercase tracking-widest hover:bg-accent/90 transition-colors duration-300">
-        查看作品集
-      </a>
-    </div>
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-primary animate-bounce">
-      <a href="#works" aria-label="向下滚动">
-        <i class="fa fa-angle-down text-2xl"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- 关于我板块 -->
-  <section id="about" class="py-20 bg-white">
+  <!-- 生活照内容 -->
+  <section class="py-12 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">关于<span class="text-accent font-semibold">我</span></h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-          <img src="https://picsum.photos/id/64/800/800" alt="个人照片" class="w-full h-full object-cover">
-        </div>
-        <div class="space-y-4">
-          <p class="text-lg text-secondary leading-relaxed">
-            大家好～我是郭紫莹，喜欢用镜头捕捉生活中的美好，也热爱设计创作。
-          </p>
-          <p class="text-lg text-secondary leading-relaxed">
-            这个小站主要分享我的日常生活照和设计作品集，希望能通过这些内容，让大家看到不一样的我～
-          </p>
-          <div class="mt-8 flex space-x-6 text-accent">
-            <a href="#" class="hover:text-accent/80 transition-colors"><i class="fa fa-weixin text-2xl"></i></a>
-            <a href="#" class="hover:text-accent/80 transition-colors"><i class="fa fa-instagram text-2xl"></i></a>
-            <a href="#" class="hover:text-accent/80 transition-colors"><i class="fa fa-github text-2xl"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 作品集板块 -->
-  <section id="works" class="py-20 bg-accent/5">
-    <div class="container mx-auto px-4">
-      <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">我的<span class="text-accent font-semibold">作品集</span></h2>
-      <!-- 作品集网格 -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- 作品1 -->
-        <div class="rounded-lg shadow-md overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/237/800/600" alt="作品1" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h3 class="font-medium text-lg mb-2">海报设计 · 春日</h3>
-            <p class="text-secondary text-sm">以春天为主题的创意海报设计</p>
-          </div>
-        </div>
-        <!-- 作品2 -->
-        <div class="rounded-lg shadow-md overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/238/800/600" alt="作品2" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h3 class="font-medium text-lg mb-2">包装设计 · 文创礼盒</h3>
-            <p class="text-secondary text-sm">新中式风格文创礼盒包装</p>
-          </div>
-        </div>
-        <!-- 作品3 -->
-        <div class="rounded-lg shadow-md overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/239/800/600" alt="作品3" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h3 class="font-medium text-lg mb-2">UI设计 · 生活类APP</h3>
-            <p class="text-secondary text-sm">简约风格生活记录APP界面设计</p>
-          </div>
-        </div>
-        <!-- 可复制上面的卡片添加更多作品 -->
-      </div>
-    </div>
-  </section>
-
-  <!-- 生活照板块 -->
-  <section id="life" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">我的<span class="text-accent font-semibold">生活照</span></h2>
-      <!-- 生活照网格 -->
+      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">我的<span class="text-accent font-semibold">生活照</span></h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
         <!-- 生活照1 -->
         <div class="rounded-lg overflow-hidden photo-hover">
@@ -184,75 +66,16 @@
         <div class="rounded-lg overflow-hidden photo-hover">
           <img src="https://picsum.photos/id/1021/800/800" alt="生活照4" class="w-full h-64 object-cover">
         </div>
-        <!-- 可复制上面的卡片添加更多生活照 -->
-      </div>
-    </div>
-  </section>
-
-  <!-- 联系我板块 -->
-  <section id="contact" class="py-20 bg-accent/5">
-    <div class="container mx-auto px-4">
-      <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">联系<span class="text-accent font-semibold">我</span></h2>
-      <div class="max-w-md mx-auto text-center">
-        <p class="text-secondary mb-8 text-lg">
-          如果你喜欢我的作品或生活分享，欢迎和我交流～
-        </p>
-        <div class="space-y-4 text-left">
-          <div class="flex items-center space-x-4">
-            <i class="fa fa-envelope text-accent text-xl"></i>
-            <p class="text-secondary">guoziying@example.com</p>
-          </div>
-          <div class="flex items-center space-x-4">
-            <i class="fa fa-wechat text-accent text-xl"></i>
-            <p class="text-secondary">Guoziying_001</p>
-          </div>
-        </div>
+        <!-- 新增生活照只需复制上面的卡片 -->
       </div>
     </div>
   </section>
 
   <!-- 页脚 -->
-  <footer class="py-8 bg-primary text-white">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 所有照片和作品均为原创</p>
+  <footer class="py-8 bg-primary text-white text-center mt-12">
+    <div class="container mx-auto px-4">
+      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站</p>
     </div>
   </footer>
-
-  <!-- 交互脚本（极简） -->
-  <script>
-    // 导航栏滚动效果
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('shadow-md', window.scrollY > 50);
-    });
-
-    // 移动端菜单开关
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const icon = menuBtn.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    });
-
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        // 关闭移动端菜单
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        }
-        // 滚动到目标位置
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
 </body>
-</html>       
- 
- 
+</html>
