@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 作品集 -->
+  <title>my website>my>m'y>
+  <!-- 复用首页的样式资源，保证风格统一 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a1a1a',
+            secondary: '#666666',
+            accent: '#f0f0f0',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
+      .photo-hover {
+        @apply transition-all duration-700 ease-in-out;
+      }
+      .photo-hover:hover {
+        @apply transform scale-[1.02] shadow-xl;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-white text-primary antialiased">
+  <!-- 导航栏（和首页完全一致，不用改） -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-md py-4" id="navbar">
+    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      <a href="/guoziying/" class="text-2xl font-semibold tracking-tight">郭紫莹的个人网站</a>
+      
+      <!-- 桌面端三级导航 -->
+      <nav class="hidden md:flex space-x-10">
+        <a href="/guoziying/#about" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors">关于我</a>
+        
+        <!-- 一级：作品集 -->
+        <div class="relative group">
+          <a href="#" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors flex items-center">
+            作品集 <i class="fa fa-angle-down ml-1 text-xs"></i>
+          </a>
+          <!-- 二级菜单 -->
+          <div class="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 w-48 hidden group-hover:block">
+            <!-- 二级：视觉传达设计 -->
+            <div class="relative group/item">
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-accent transition-colors flex justify-between items-center">
+                视觉传达设计 <i class="fa fa-angle-right ml-1 text-xs"></i>
+              </a>
+              <!-- 三级菜单 -->
+              <div class="absolute top-0 left-full ml-2 bg-white shadow-lg rounded-md py-2 w-48 hidden group-hover/item:block">
+                <a href="/guoziying/works/visual/poster.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">海报设计</a>
+                <a href="/guoziying/works/visual/package.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">包装设计</a>
+              </div>
+            </div>
+            <!-- 二级：摄影作品 -->
+            <div class="relative group/item">
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-accent transition-colors flex justify-between items-center">
+                摄影作品 <i class="fa fa-angle-right ml-1 text-xs"></i>
+              </a>
+              <!-- 三级菜单 -->
+              <div class="absolute top-0 left-full ml-2 bg-white shadow-lg rounded-md py-2 w-48 hidden group-hover/item:block">
+                <a href="/guoziying/works/photo/landscape.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">风景摄影</a>
+                <a href="/guoziying/works/photo/portrait.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">人像摄影</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 一级：生活记录 -->
+        <div class="relative group">
+          <a href="#" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors flex items-center">
+            生活记录 <i class="fa fa-angle-down ml-1 text-xs"></i>
+          </a>
+          <!-- 二级菜单 -->
+          <div class="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 w-48 hidden group-hover:block">
+            <div class="relative group/item">
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-accent transition-colors flex justify-between items-center">
+                旅行日记 <i class="fa fa-angle-right ml-1 text-xs"></i>
+              </a>
+              <!-- 三级菜单 -->
+              <div class="absolute top-0 left-full ml-2 bg-white shadow-lg rounded-md py-2 w-48 hidden group-hover/item:block">
+                <a href="/guoziying/life/travel/suzhou.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">苏州</a>
+                <a href="/guoziying/life/travel/yunnan.html" class="block px-4 py-2 text-sm hover:bg-accent transition-colors">云南</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="/guoziying/#contact" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors">联系我</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button class="md:hidden text-primary focus:outline-none" id="menuBtn">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端三级导航 -->
+    <div class="md:hidden hidden bg-white absolute w-full left-0 py-4 shadow-lg" id="mobileMenu">
+      <div class="container mx-auto px-4 flex flex-col space-y-4">
+        <a href="/guoziying/#about" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors py-2">关于我</a>
+        
+        <!-- 移动端一级：作品集 -->
+        <div class="mobile-dropdown">
+          <a href="#" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors py-2 flex justify-between items-center" id="worksDropdown">
+            作品集 <i class="fa fa-angle-down ml-1 text-xs"></i>
+          </a>
+          <!-- 移动端二级菜单 -->
+          <div class="pl-4 space-y-2 hidden" id="worksSubmenu">
+            <div class="mobile-dropdown-2">
+              <a href="#" class="text-sm hover:text-secondary transition-colors py-2 flex justify-between items-center" id="visualDropdown">
+                视觉传达设计 <i class="fa fa-angle-down ml-1 text-xs"></i>
+              </a>
+              <!-- 移动端三级菜单 -->
+              <div class="pl-4 space-y-2 hidden" id="visualSubmenu">
+                <a href="/guoziying/works/visual/poster.html" class="text-sm hover:text-secondary transition-colors py-2 block">海报设计</a>
+                <a href="/guoziying/works/visual/package.html" class="text-sm hover:text-secondary transition-colors py-2 block">包装设计</a>
+              </div>
+            </div>
+            <div class="mobile-dropdown-2">
+              <a href="#" class="text-sm hover:text-secondary transition-colors py-2 flex justify-between items-center" id="photoDropdown">
+                摄影作品 <i class="fa fa-angle-down ml-1 text-xs"></i>
+              </a>
+              <div class="pl-4 space-y-2 hidden" id="photoSubmenu">
+                <a href="/guoziying/works/photo/landscape.html" class="text-sm hover:text-secondary transition-colors py-2 block">风景摄影</a>
+                <a href="/guoziying/works/photo/portrait.html" class="text-sm hover:text-secondary transition-colors py-2 block">人像摄影</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 移动端一级：生活记录 -->
+        <div class="mobile-dropdown">
+          <a href="#" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors py-2 flex justify-between items-center" id="lifeDropdown">
+            生活记录 <i class="fa fa-angle-down ml-1 text-xs"></i>
+          </a>
+          <div class="pl-4 space-y-2 hidden" id="lifeSubmenu">
+            <div class="mobile-dropdown-2">
+              <a href="#" class="text-sm hover:text-secondary transition-colors py-2 flex justify-between items-center" id="travelDropdown">
+                旅行日记 <i class="fa fa-angle-down ml-1 text-xs"></i>
+              </a>
+              <div class="pl-4 space-y-2 hidden" id="travelSubmenu">
+                <a href="/guoziying/life/travel/suzhou.html" class="text-sm hover:text-secondary transition-colors py-2 block">苏州</a>
+                <a href="/guoziying/life/travel/yunnan.html" class="text-sm hover:text-secondary transition-colors py-2 block">云南</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="/guoziying/#contact" class="text-sm uppercase tracking-widest hover:text-secondary transition-colors py-2">联系我</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 pb-16">
+  <div class="container mx-auto px-4">
+    <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-8 tracking-tight">
+      视觉传达设计 | <span class="font-semibold">海报设计</span>
+    </h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="rounded-lg shadow-md overflow-hidden photo-hover">
+        <img src="https://raw.githubusercontent.com/yooice1/guoziying/main/works/poster1.jpg" alt="春分节气海报" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <h3 class="font-medium mb-2">春分节气海报</h3>
+          <p class="text-secondary text-sm">结合水墨风格与现代排版的传统节气海报设计</p>
+        </div>
+      </div>
+      <div class="rounded-lg shadow-md overflow-hidden photo-hover">
+        <img src="https://raw.githubusercontent.com/yooice1/guoziying/main/works/poster2.jpg" alt="毕业展海报" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <h3 class="font-medium mb-2">苏州大学毕业展海报</h3>
+          <p class="text-secondary text-sm">视觉传达设计专业毕业展主视觉海报</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+  
+  <!-- 页脚（和首页完全一致，不用改） -->
+  <footer class="py-12 bg-primary text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <p class="text-xl font-semibold">郭紫莹的个人网站</p>
+          <p class="text-white/70 mt-2">设计与生活的记录</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-white/70 hover:text-white transition-colors">
+            <i class="fa fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="text-white/70 hover:text-white transition-colors">
+            <i class="fa fa-weibo text-xl"></i>
+          </a>
+          <a href="#" class="text-white/70 hover:text-white transition-colors">
+            <i class="fa fa-wechat text-xl"></i>
+          </a>
+          <a href="#" class="text-white/70 hover:text-white transition-colors">
+            <i class="fa fa-github text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/20 mt-8 pt-8 text-center text-white/70 text-sm">
+        <p>&copy; 2023 郭紫莹. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 交互脚本（和首页完全一致，不用改） -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md', 'py-4');
+        navbar.classList.remove('py-6');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-4');
+        navbar.classList.add('py-6');
+      }
+    });
+    
+    // 移动端菜单开关
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = menuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
+    
+    // 移动端一级菜单：作品集
+    const worksDropdown = document.getElementById('worksDropdown');
+    const worksSubmenu = document.getElementById('worksSubmenu');
+    worksDropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      worksSubmenu.classList.toggle('hidden');
+      const icon = worksDropdown.querySelector('i');
+      icon.classList.toggle('fa-angle-down');
+      icon.classList.toggle('fa-angle-up');
+    });
+    
+    // 移动端二级菜单：视觉传达设计
+    const visualDropdown = document.getElementById('visualDropdown');
+    const visualSubmenu = document.getElementById('visualSubmenu');
+    visualDropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      visualSubmenu.classList.toggle('hidden');
+      const icon = visualDropdown.querySelector('i');
+      icon.classList.toggle('fa-angle-down');
+      icon.classList.toggle('fa-angle-up');
+    });
+    
+    // 移动端二级菜单：摄影作品
+    const photoDropdown = document.getElementById('photoDropdown');
+    const photoSubmenu = document.getElementById('photoSubmenu');
+    photoDropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      photoSubmenu.classList.toggle('hidden');
+      const icon = photoDropdown.querySelector('i');
+      icon.classList.toggle('fa-angle-down');
+      icon.classList.toggle('fa-angle-up');
+    });
+    
+    // 移动端一级菜单：生活记录
+    const lifeDropdown = document.getElementById('lifeDropdown');
+    const lifeSubmenu = document.getElementById('lifeSubmenu');
+    lifeDropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      lifeSubmenu.classList.toggle('hidden');
+      const icon = lifeDropdown.querySelector('i');
+      icon.classList.toggle('fa-angle-down');
+      icon.classList.toggle('fa-angle-up');
+    });
+    
+    // 移动端二级菜单：旅行日记
+    const travelDropdown = document.getElementById('travelDropdown');
+    const travelSubmenu = document.getElementById('travelSubmenu');
+    travelDropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      travelSubmenu.classList.toggle('hidden');
+      const icon = travelDropdown.querySelector('i');
+      icon.classList.toggle('fa-angle-down');
+      icon.classList.toggle('fa-angle-up');
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const icon = menuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
