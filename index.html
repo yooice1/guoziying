@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的生活照 | 郭紫莹</title>
-  <!-- 复用样式 -->
+  <title>郭紫莹的个人网站 | 首页</title>
+  <!-- 样式资源（统一风格） -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- 自定义样式配置 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2c3e50',
-            secondary: '#7f8c8d',
-            accent: '#3498db',
+            main: '#e63946', // 主色调（醒目红，适配展示类网站）
+            gray: {
+              light: '#f1faee',
+              mid: '#a8dadc',
+              dark: '#1d3557',
+            }
           },
           fontFamily: {
             inter: ['Inter', 'sans-serif'],
@@ -30,52 +34,125 @@
   
   <style type="text/tailwindcss">
     @layer utilities {
-      .photo-hover {
-        @apply transition-all duration-500 ease-in-out hover:scale-[1.03] shadow-xl;
+      .jump-card {
+        @apply transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-3 cursor-pointer;
       }
     }
   </style>
 </head>
 
-<body class="font-inter bg-white text-primary antialiased pt-20">
-  <!-- 返回首页按钮 -->
-  <div class="container mx-auto px-4 md:px-8 py-4">
-    <a href="/guoziying/" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
-      <i class="fa fa-arrow-left mr-2"></i> 返回首页
-    </a>
-  </div>
+<body class="font-inter bg-gray-light text-gray-dark antialiased">
+  <!-- 导航栏（固定顶部，带跳转入口） -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm py-3">
+    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      <a href="/guoziying/" class="text-xl font-semibold text-main">郭紫莹的个人主页</a>
+      
+      <!-- 桌面端导航 -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#intro" class="text-sm hover:text-main transition-colors">首页简介</a>
+        <a href="/guoziying/designs.html" class="text-sm hover:text-main transition-colors">设计作品</a>
+        <a href="/guoziying/life-photos.html" class="text-sm hover:text-main transition-colors">生活照</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button class="md:hidden text-gray-dark focus:outline-none" id="mobileMenuBtn">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div class="md:hidden hidden bg-white absolute w-full left-0 py-3 shadow-md" id="mobileMenu">
+      <div class="container mx-auto px-4 flex flex-col space-y-2">
+        <a href="#intro" class="py-2 text-sm hover:text-main transition-colors">首页简介</a>
+        <a href="/guoziying/designs.html" class="py-2 text-sm hover:text-main transition-colors">设计作品</a>
+        <a href="/guoziying/life-photos.html" class="py-2 text-sm hover:text-main transition-colors">生活照</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- 生活照内容 -->
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">我的<span class="text-accent font-semibold">生活照</span></h1>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-        <!-- 生活照1 -->
-        <div class="rounded-lg overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/1018/800/800" alt="生活照1" class="w-full h-64 object-cover">
+  <!-- 核心跳转区域（视觉焦点） -->
+  <section class="h-screen flex items-center justify-center pt-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-[clamp(1.8rem,6vw,3.5rem)] font-light mb-10">
+        我的 <span class="text-main font-semibold">设计与生活</span>
+      </h1>
+      
+      <!-- 两个跳转卡片（设计作品+生活照） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- 设计作品跳转卡片 -->
+        <a href="/guoziying/designs.html" class="jump-card bg-white rounded-lg shadow-md p-8">
+          <i class="fa fa-paint-brush text-main text-5xl mb-5"></i>
+          <h2 class="text-2xl font-medium mb-3">设计作品</h2>
+          <p class="text-gray-600">查看我的海报、包装等设计创作</p>
+        </a>
+        
+        <!-- 生活照跳转卡片 -->
+        <a href="/guoziying/life-photos.html" class="jump-card bg-white rounded-lg shadow-md p-8">
+          <i class="fa fa-camera text-main text-5xl mb-5"></i>
+          <h2 class="text-2xl font-medium mb-3">生活照</h2>
+          <p class="text-gray-600">记录日常美好瞬间的生活碎片</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 首页简介板块 -->
+  <section id="intro" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-[clamp(1.5rem,4vw,2.2rem)] font-light mb-12 text-center">
+        关于 <span class="text-main font-semibold">我</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+          <img src="https://picsum.photos/id/1027/800/800" alt="个人形象照" class="w-full h-full object-cover">
         </div>
-        <!-- 生活照2 -->
-        <div class="rounded-lg overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/1019/800/800" alt="生活照2" class="w-full h-64 object-cover">
+        <div class="space-y-4">
+          <p class="text-lg text-gray-600 leading-relaxed">
+            大家好，我是郭紫莹，一名热爱设计与生活记录的创作者。
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            这个网站专门展示我的设计作品和生活照，点击上方卡片即可查看详情，希望能通过这些内容，和大家分享我的创作与日常。
+          </p>
         </div>
-        <!-- 生活照3 -->
-        <div class="rounded-lg overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/1020/800/800" alt="生活照3" class="w-full h-64 object-cover">
-        </div>
-        <!-- 生活照4 -->
-        <div class="rounded-lg overflow-hidden photo-hover">
-          <img src="https://picsum.photos/id/1021/800/800" alt="生活照4" class="w-full h-64 object-cover">
-        </div>
-        <!-- 新增生活照只需复制上面的卡片 -->
       </div>
     </div>
   </section>
 
   <!-- 页脚 -->
-  <footer class="py-8 bg-primary text-white text-center mt-12">
+  <footer class="py-8 bg-gray-dark text-white text-center">
     <div class="container mx-auto px-4">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站</p>
+      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 设计与生活的专属记录</p>
     </div>
   </footer>
+
+  <!-- 简单交互脚本 -->
+  <script>
+    // 移动端菜单开关
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // 首页锚点平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        // 点击锚点关闭移动端菜单
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
+        // 平滑滚动到目标区域
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
