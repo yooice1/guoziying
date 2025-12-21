@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>设计作品 | 郭紫莹</title>
-  <!-- 复用首页样式，保证风格统一 -->
+  <title>设计作品 | 极简黑白风</title>
+  <!-- 复用首页极简样式，保证风格统一 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- 黑白极简配置 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            main: '#e63946',
+            black: '#000000',
+            white: '#ffffff',
             gray: {
-              light: '#f1faee',
-              mid: '#a8dadc',
-              dark: '#1d3557',
+              100: '#f8f8f8',
+              200: '#eaeaea',
+              300: '#dddddd',
+              400: '#bbbbbb',
+              500: '#999999',
+              600: '#777777',
+              700: '#555555',
+              800: '#333333',
+              900: '#111111',
             }
           },
           fontFamily: {
@@ -33,73 +41,67 @@
   
   <style type="text/tailwindcss">
     @layer utilities {
-      .work-hover {
-        @apply transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-xl;
+      /* 作品卡片极简hover动效 */
+      .work-card {
+        @apply transition-all duration-400 ease-in-out hover:shadow-md hover:scale-[1.01];
       }
     }
   </style>
 </head>
 
-<body class="font-inter bg-gray-light text-gray-dark antialiased pt-20">
-  <!-- 返回首页按钮（固定入口） -->
+<body class="font-inter bg-gray-100 text-gray-900 antialiased pt-20">
+  <!-- 极简返回首页按钮 -->
   <div class="container mx-auto px-4 md:px-8 py-4">
-    <a href="/guoziying/" class="inline-flex items-center text-main hover:text-main/80 transition-colors">
+    <a href="/guoziying/" class="inline-flex items-center text-gray-800 hover:text-gray-900 transition-colors text-sm">
       <i class="fa fa-arrow-left mr-2"></i> 回到首页
     </a>
   </div>
 
-  <!-- 设计作品展示区域 -->
+  <!-- 设计作品极简展示区域 -->
   <section class="py-12">
     <div class="container mx-auto px-4">
-      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">
-        我的 <span class="text-main font-semibold">设计作品</span>
+      <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-12 text-center text-gray-900">
+        设计作品
       </h1>
       
-      <!-- 作品网格布局 -->
+      <!-- 作品网格（极简布局） -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- 作品1：海报设计 -->
-        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/231/800/600" alt="节气海报设计" class="w-full h-64 object-cover">
+        <!-- 作品1 -->
+        <div class="work-card bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+          <img src="你的设计作品1 Raw链接" alt="设计作品1" class="w-full h-64 object-cover">
           <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">春分节气海报</h3>
-            <p class="text-gray-600 text-sm">水墨风格与现代排版结合，传递传统节气之美</p>
+            <h3 class="text-lg font-medium mb-2 text-gray-900">作品名称1</h3>
+            <p class="text-gray-600 text-sm">作品简介：简约风格设计</p>
           </div>
         </div>
         
-        <!-- 作品2：包装设计 -->
-        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/241/800/600" alt="文创包装设计" class="w-full h-64 object-cover">
+        <!-- 作品2 -->
+        <div class="work-card bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+          <img src="你的设计作品2 Raw链接" alt="设计作品2" class="w-full h-64 object-cover">
           <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">苏绣文创礼盒包装</h3>
-            <p class="text-gray-600 text-sm">新中式风格，融合苏州非遗苏绣元素</p>
+            <h3 class="text-lg font-medium mb-2 text-gray-900">作品名称2</h3>
+            <p class="text-gray-600 text-sm">作品简介：极简视觉呈现</p>
           </div>
         </div>
         
-        <!-- 作品3：UI设计 -->
-        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/251/800/600" alt="APP UI设计" class="w-full h-64 object-cover">
+        <!-- 作品3 -->
+        <div class="work-card bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+          <img src="你的设计作品3 Raw链接" alt="设计作品3" class="w-full h-64 object-cover">
           <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">生活记录APP界面</h3>
-            <p class="text-gray-600 text-sm">简约清新风格，提升用户使用体验</p>
+            <h3 class="text-lg font-medium mb-2 text-gray-900">作品名称3</h3>
+            <p class="text-gray-600 text-sm">作品简介：黑白灰风格创作</p>
           </div>
         </div>
         
-        <!-- 可复制上面的作品卡片，新增更多设计作品 -->
-        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/261/800/600" alt="画册设计" class="w-full h-64 object-cover">
-          <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">个人作品集画册</h3>
-            <p class="text-gray-600 text-sm">图文排版设计，展现个人创作历程</p>
-          </div>
-        </div>
+        <!-- 新增作品：复制上面的作品卡片，修改图片链接和文字即可 -->
       </div>
     </div>
   </section>
 
-  <!-- 页脚 -->
-  <footer class="py-8 bg-gray-dark text-white text-center mt-12">
+  <!-- 极简页脚 -->
+  <footer class="py-6 bg-gray-900 text-white text-center mt-12">
     <div class="container mx-auto px-4">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 设计作品均为原创</p>
+      <p class="text-sm text-gray-400">© 2025 设计作品 | 极简黑白风</p>
     </div>
   </footer>
 </body>
