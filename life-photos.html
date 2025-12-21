@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生活照 | 郭紫莹</title>
+  <!-- 复用首页样式，保证风格统一 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            main: '#e63946',
+            gray: {
+              light: '#f1faee',
+              mid: '#a8dadc',
+              dark: '#1d3557',
+            }
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .photo-hover {
+        @apply transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-xl;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-gray-light text-gray-dark antialiased pt-20">
+  <!-- 返回首页按钮（固定入口） -->
+  <div class="container mx-auto px-4 md:px-8 py-4">
+    <a href="/guoziying/" class="inline-flex items-center text-main hover:text-main/80 transition-colors">
+      <i class="fa fa-arrow-left mr-2"></i> 回到首页
+    </a>
+  </div>
+
+  <!-- 生活照展示区域 -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">
+        我的 <span class="text-main font-semibold">生活照</span>
+      </h1>
+      
+      <!-- 生活照网格布局 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <!-- 生活照1 -->
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1015/800/800" alt="旅行随拍" class="w-full h-64 object-cover">
+        </div>
+        
+        <!-- 生活照2 -->
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1016/800/800" alt="日常碎片" class="w-full h-64 object-cover">
+        </div>
+        
+        <!-- 生活照3 -->
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1017/800/800" alt="风景记录" class="w-full h-64 object-cover">
+        </div>
+        
+        <!-- 生活照4 -->
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1018/800/800" alt="美食打卡" class="w-full h-64 object-cover">
+        </div>
+        
+        <!-- 可复制上面的照片卡片，新增更多生活照 -->
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1019/800/800" alt="户外游玩" class="w-full h-64 object-cover">
+        </div>
+        
+        <div class="photo-hover rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/id/1020/800/800" alt="文艺瞬间" class="w-full h-64 object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="py-8 bg-gray-dark text-white text-center mt-12">
+    <div class="container mx-auto px-4">
+      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 生活瞬间的珍贵记录</p>
+    </div>
+  </footer>
+</body>
+</html>
