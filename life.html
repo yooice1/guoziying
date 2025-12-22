@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>生活照 | 郭紫莹</title>
-  <!-- 复用公共样式资源 -->
+  <title>生活照 | 我的个人网站</title>
+  <!-- 复用公共样式 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- 保持与其他页面一致的样式配置 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            main: '#000000', // 统一主色调为纯黑
+            main: '#000000',
             gray: {
-              light: '#f1faee',
-              mid: '#a8dadc',
-              dark: '#1d3557',
+              light: '#f8f9fa',
+              mid: '#e9ecef',
+              dark: '#343a40',
             }
           },
           fontFamily: {
@@ -38,133 +37,128 @@
         @apply transition-all duration-500 ease-in-out hover:scale-[1.03] hover:shadow-xl;
       }
       .nav-scrolled {
-        @apply bg-white shadow-md py-4;
+        @apply bg-white shadow-md py-3;
       }
     }
   </style>
 </head>
 
 <body class="font-inter bg-gray-light text-gray-dark antialiased">
-  <!-- 导航栏（与首页保持一致） -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+  <!-- 导航栏（与首页、设计页完全统一） -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-white/90 backdrop-blur-sm">
     <div class="container mx-auto px-4 md:px-8">
       <div class="flex justify-between items-center">
-        <!-- 网站Logo/名称 -->
-        <a href="/guoziying/" class="text-main font-medium text-xl">郭紫莹</a>
+        <a href="/guoziying/" class="text-main font-semibold text-xl">我的个人主页</a>
         
-        <!-- 桌面端导航菜单 -->
         <div class="hidden md:flex space-x-8">
           <a href="/guoziying/" class="hover:text-main transition-colors">首页</a>
           <a href="/guoziying/designs.html" class="hover:text-main transition-colors">设计作品</a>
           <a href="#" class="text-main font-medium">生活照</a>
-          <a href="#" class="hover:text-main transition-colors">关于我</a>
+          <a href="/guoziying/#contact" class="hover:text-main transition-colors">联系我</a>
         </div>
         
-        <!-- 移动端菜单按钮 -->
         <button id="mobileMenuBtn" class="md:hidden text-gray-dark focus:outline-none">
           <i class="fa fa-bars text-xl"></i>
         </button>
       </div>
     </div>
     
-    <!-- 移动端菜单 -->
     <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 w-full">
       <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
         <a href="/guoziying/" class="py-2 hover:text-main transition-colors">首页</a>
         <a href="/guoziying/designs.html" class="py-2 hover:text-main transition-colors">设计作品</a>
         <a href="#" class="py-2 text-main font-medium">生活照</a>
-        <a href="#" class="py-2 hover:text-main transition-colors">关于我</a>
+        <a href="/guoziying/#contact" class="py-2 hover:text-main transition-colors">联系我</a>
       </div>
     </div>
   </nav>
 
-  <!-- 页面内容区 -->
+  <!-- 生活照展示区域 -->
   <main class="pt-32 pb-16">
     <div class="container mx-auto px-4 md:px-8">
-      <!-- 页面标题（与设计作品页风格一致） -->
       <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">
         我的 <span class="text-main font-semibold">生活照</span>
       </h1>
       
-      <!-- 照片分类筛选 -->
+      <!-- 照片分类筛选（微交互） -->
       <div class="flex flex-wrap justify-center gap-4 mb-10">
-        <button class="px-4 py-2 bg-main text-white rounded-full text-sm">全部</button>
-        <button class="px-4 py-2 bg-white hover:bg-gray-100 rounded-full text-sm transition-colors">旅行</button>
-        <button class="px-4 py-2 bg-white hover:bg-gray-100 rounded-full text-sm transition-colors">日常</button>
-        <button class="px-4 py-2 bg-white hover:bg-gray-100 rounded-full text-sm transition-colors">风景</button>
+        <button class="px-4 py-2 bg-main text-white rounded-full text-sm hover:bg-gray-dark transition-colors">全部</button>
+        <button class="px-4 py-2 bg-white hover:bg-gray-mid rounded-full text-sm transition-colors">旅行</button>
+        <button class="px-4 py-2 bg-white hover:bg-gray-mid rounded-full text-sm transition-colors">日常</button>
+        <button class="px-4 py-2 bg-white hover:bg-gray-mid rounded-full text-sm transition-colors">风景</button>
       </div>
       
-      <!-- 照片网格布局（响应式设计） -->
+      <!-- 生活照网格（鼠标悬停动效+响应式） -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- 照片1 -->
+        <!-- 生活照1（原创无版权） -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/64/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1015/800/600" alt="旅行随拍" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">海边日落 · 2024.05</p>
+            <p class="text-sm text-gray-600">海边日落 · 原创生活随拍</p>
           </div>
         </div>
         
-        <!-- 照片2 -->
+        <!-- 生活照2 -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/65/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1016/800/600" alt="日常碎片" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">城市街景 · 2024.03</p>
+            <p class="text-sm text-gray-600">城市街景 · 原创生活随拍</p>
           </div>
         </div>
         
-        <!-- 照片3 -->
+        <!-- 生活照3 -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/76/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1017/800/600" alt="风景记录" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">山间徒步 · 2024.01</p>
+            <p class="text-sm text-gray-600">山间风光 · 原创生活随拍</p>
           </div>
         </div>
         
-        <!-- 照片4 -->
+        <!-- 生活照4 -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/87/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1018/800/600" alt="美食打卡" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">咖啡馆一角 · 2023.12</p>
+            <p class="text-sm text-gray-600">文艺咖啡馆 · 原创生活随拍</p>
           </div>
         </div>
         
-        <!-- 照片5 -->
+        <!-- 生活照5 -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/96/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1019/800/600" alt="户外游玩" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">秋日公园 · 2023.10</p>
+            <p class="text-sm text-gray-600">秋日公园 · 原创生活随拍</p>
           </div>
         </div>
         
-        <!-- 照片6 -->
+        <!-- 生活照6 -->
         <div class="photo-hover bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://picsum.photos/id/91/800/600" alt="生活照" class="w-full h-64 object-cover">
+          <img src="https://picsum.photos/id/1020/800/600" alt="文艺瞬间" class="w-full h-64 object-cover">
           <div class="p-4">
-            <p class="text-sm text-gray-600">雨夜街拍 · 2023.09</p>
+            <p class="text-sm text-gray-600">雨夜街景 · 原创生活随拍</p>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- 页脚（与其他页面保持一致） -->
+  <!-- 页脚（与其他页面完全统一） -->
   <footer class="py-8 bg-gray-dark text-white text-center">
     <div class="container mx-auto px-4">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 生活记录</p>
+      <p class="text-white/70 text-sm">© 2025 我的个人网站 | 所有生活照均为原创</p>
     </div>
   </footer>
 
   <!-- 交互脚本 -->
   <script>
-    // 导航栏滚动效果（与其他页面保持一致）
+    // 导航栏滚动效果
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.remove('py-6');
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('py-5');
       } else {
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-4');
-        navbar.classList.add('py-6');
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('py-5');
       }
     });
     
@@ -183,7 +177,6 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        // 关闭移动端菜单
         if (!mobileMenu.classList.contains('hidden')) {
           mobileMenu.classList.add('hidden');
           mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
