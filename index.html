@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>郭紫莹的个人网站 | 首页</title>
-  <!-- 样式资源（统一风格） -->
+  <title>我的个人网站 | 生活与设计</title>
+  <!-- 公共样式资源 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- 自定义样式配置（主色调改为黑色） -->
+  <!-- 样式配置（黑色主调） -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            main: '#000000', // 主色调改为纯黑
+            main: '#000000', // 黑色主色调
             gray: {
-              light: '#f1faee',
-              mid: '#a8dadc',
-              dark: '#1d3557',
+              light: '#f8f9fa',
+              mid: '#e9ecef',
+              dark: '#343a40',
             }
           },
           fontFamily: {
@@ -37,86 +37,120 @@
       .jump-card {
         @apply transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-3 cursor-pointer;
       }
+      .nav-scrolled {
+        @apply bg-white shadow-md py-3;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
     }
   </style>
 </head>
 
 <body class="font-inter bg-gray-light text-gray-dark antialiased">
-  <!-- 导航栏（固定顶部，带跳转入口） -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm py-3">
-    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-      <a href="/guoziying/" class="text-xl font-semibold text-main">郭紫莹的个人主页</a>
-      
-      <!-- 桌面端导航 -->
-      <nav class="hidden md:flex space-x-6">
-        <a href="#intro" class="text-sm hover:text-main transition-colors">首页简介</a>
-        <a href="/guoziying/designs.html" class="text-sm hover:text-main transition-colors">设计作品</a>
-        <a href="/guoziying/life-photos.html" class="text-sm hover:text-main transition-colors">生活照</a>
-      </nav>
-      
-      <!-- 移动端菜单按钮 -->
-      <button class="md:hidden text-gray-dark focus:outline-none" id="mobileMenuBtn">
-        <i class="fa fa-bars text-xl"></i>
-      </button>
-    </div>
-    
-    <!-- 移动端导航菜单 -->
-    <div class="md:hidden hidden bg-white absolute w-full left-0 py-3 shadow-md" id="mobileMenu">
-      <div class="container mx-auto px-4 flex flex-col space-y-2">
-        <a href="#intro" class="py-2 text-sm hover:text-main transition-colors">首页简介</a>
-        <a href="/guoziying/designs.html" class="py-2 text-sm hover:text-main transition-colors">设计作品</a>
-        <a href="/guoziying/life-photos.html" class="py-2 text-sm hover:text-main transition-colors">生活照</a>
+  <!-- 导航栏（滚动触发效果+响应式） -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-white/90 backdrop-blur-sm">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex justify-between items-center">
+        <a href="/guoziying/" class="text-main font-semibold text-xl">我的个人主页</a>
+        
+        <!-- 桌面端导航 -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="hover:text-main transition-colors">首页</a>
+          <a href="/guoziying/designs.html" class="hover:text-main transition-colors">设计作品</a>
+          <a href="/guoziying/life.html" class="hover:text-main transition-colors">生活照</a>
+          <a href="#contact" class="hover:text-main transition-colors">联系我</a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="mobileMenuBtn" class="md:hidden text-gray-dark focus:outline-none">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
       </div>
     </div>
-  </header>
+    
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 w-full">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#home" class="py-2 hover:text-main transition-colors">首页</a>
+        <a href="/guoziying/designs.html" class="py-2 hover:text-main transition-colors">设计作品</a>
+        <a href="/guoziying/life.html" class="py-2 hover:text-main transition-colors">生活照</a>
+        <a href="#contact" class="py-2 hover:text-main transition-colors">联系我</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- 核心跳转区域（新增背景图+视觉焦点） -->
-  <section class="h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-    <!-- 新增背景图 -->
+  <!-- 首页核心区域（背景图+跳转卡片） -->
+  <section id="home" class="h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <!-- 原创风格背景图（无版权，可替换） -->
     <div class="absolute inset-0 z-0">
-      <img src="https://github.com/yooice1/guoziying/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20251221224249_220_5.jpg?raw=true">
+      <img src="https://picsum.photos/id/1069/1920/1080" alt="首页背景" class="w-full h-full object-cover object-center opacity-15">
     </div>
     <div class="container mx-auto px-4 text-center relative z-10">
       <h1 class="text-[clamp(1.8rem,6vw,3.5rem)] font-light mb-10">
         我的 <span class="text-main font-semibold">设计与生活</span>
       </h1>
       
-      <!-- 两个跳转卡片（设计作品+生活照） -->
+      <!-- 二级页面跳转卡片（鼠标悬停动效） -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- 设计作品跳转卡片 -->
         <a href="/guoziying/designs.html" class="jump-card bg-white rounded-lg shadow-md p-8">
           <i class="fa fa-paint-brush text-main text-5xl mb-5"></i>
           <h2 class="text-2xl font-medium mb-3">设计作品</h2>
-          <p class="text-gray-600">查看我的海报、包装等设计创作</p>
+          <p class="text-gray-600">查看我的原创设计创作</p>
         </a>
         
-        <!-- 生活照跳转卡片 -->
-        <a href="/guoziying/life-photos.html" class="jump-card bg-white rounded-lg shadow-md p-8">
+        <a href="/guoziying/life.html" class="jump-card bg-white rounded-lg shadow-md p-8">
           <i class="fa fa-camera text-main text-5xl mb-5"></i>
           <h2 class="text-2xl font-medium mb-3">生活照</h2>
-          <p class="text-gray-600">记录日常美好瞬间的生活碎片</p>
+          <p class="text-gray-600">记录我的日常美好瞬间</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 首页简介板块 -->
-  <section id="intro" class="py-20 bg-white">
+  <!-- 关于我板块 -->
+  <section id="about" class="py-20 bg-white">
     <div class="container mx-auto px-4 max-w-5xl">
       <h2 class="text-[clamp(1.5rem,4vw,2.2rem)] font-light mb-12 text-center">
         关于 <span class="text-main font-semibold">我</span>
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-          <img src="https://github.com/yooice1/guoziying/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20251221142942_206_5.jpg?raw=true">
+          <img src="https://picsum.photos/id/1027/800/800" alt="个人形象" class="w-full h-full object-cover">
         </div>
         <div class="space-y-4">
-          <p class="text-lg text-gray-600 leading-relaxed">
-            大家好，我是郭紫莹，一名热爱设计与生活记录的创作者。
+          <p class="text-lg text-gray-600 leading-relaxed text-balance">
+            大家好，我是一名热爱设计与生活记录的创作者，专注于平面设计、UI设计等领域，喜欢用镜头捕捉日常中的小美好。
           </p>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            这个网站专门展示我的设计作品和生活照，点击上方卡片即可查看详情，希望能通过这些内容，和大家分享我的创作与日常。
+          <p class="text-lg text-gray-600 leading-relaxed text-balance">
+            这个网站用于展示我的原创设计作品和生活随拍，欢迎通过下方联系方式与我交流合作。
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式板块（隐私保护） -->
+  <section id="contact" class="py-20 bg-gray-mid">
+    <div class="container mx-auto px-4 max-w-md text-center">
+      <h2 class="text-[clamp(1.5rem,4vw,2.2rem)] font-light mb-12 text-center">
+        联系 <span class="text-main font-semibold">我</span>
+      </h2>
+      <p class="text-gray-600 mb-8 text-lg">
+        如果你喜欢我的作品，欢迎随时沟通交流～
+      </p>
+      <div class="space-y-4 text-left inline-block text-center">
+        <div class="flex items-center space-x-4 justify-center">
+          <i class="fa fa-envelope text-main text-xl"></i>
+          <p class="text-gray-600">xxxdesign@163.com</p>
+        </div>
+        <div class="flex items-center space-x-4 justify-center">
+          <i class="fa fa-wechat text-main text-xl"></i>
+          <p class="text-gray-600">Design_Life_001</p>
+        </div>
+        <div class="flex items-center space-x-4 justify-center">
+          <i class="fa fa-email text-main text-xl"></i>
+          <p class="text-gray-600">xxx_design@foxmail.com</p>
         </div>
       </div>
     </div>
@@ -125,13 +159,25 @@
   <!-- 页脚 -->
   <footer class="py-8 bg-gray-dark text-white text-center">
     <div class="container mx-auto px-4">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 设计与生活的专属记录</p>
+      <p class="text-white/70 text-sm">© 2025 我的个人网站 | 所有作品与照片均为原创</p>
     </div>
   </footer>
 
-  <!-- 简单交互脚本 -->
+  <!-- 交互脚本（滚动效果+移动端菜单） -->
   <script>
-    // 移动端菜单开关
+    // 导航栏滚动触发样式变化
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('py-5');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('py-5');
+      }
+    });
+    
+    // 移动端菜单开关（微交互）
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
@@ -142,16 +188,14 @@
       icon.classList.toggle('fa-times');
     });
 
-    // 首页锚点平滑滚动
+    // 锚点平滑滚动（页面过渡动画）
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        // 点击锚点关闭移动端菜单
         if (!mobileMenu.classList.contains('hidden')) {
           mobileMenu.classList.add('hidden');
           mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
         }
-        // 平滑滚动到目标区域
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
@@ -160,5 +204,3 @@
   </script>
 </body>
 </html>
-
-
