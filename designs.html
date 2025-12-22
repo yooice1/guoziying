@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>设计作品 | 郭紫莹</title>
-  <!-- 复用首页样式，保证风格统一 -->
+  <title>设计作品 | 我的个人网站</title>
+  <!-- 复用公共样式 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +16,11 @@
       theme: {
         extend: {
           colors: {
-            main: '#000000', // 主色调改为纯黑
+            main: '#000000',
             gray: {
-              light: '#f1faee',
-              mid: '#a8dadc',
-              dark: '#1d3557',
+              light: '#f8f9fa',
+              mid: '#e9ecef',
+              dark: '#343a40',
             }
           },
           fontFamily: {
@@ -34,73 +34,156 @@
   <style type="text/tailwindcss">
     @layer utilities {
       .work-hover {
-        @apply transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-xl;
+        @apply transition-all duration-500 ease-in-out hover:scale-[1.03] hover:shadow-xl;
+      }
+      .nav-scrolled {
+        @apply bg-white shadow-md py-3;
       }
     }
   </style>
 </head>
 
-<body class="font-inter bg-gray-light text-gray-dark antialiased pt-20">
-  <!-- 返回首页按钮（固定入口） -->
-  <div class="container mx-auto px-4 md:px-8 py-4">
-    <a href="/guoziying/" class="inline-flex items-center text-main hover:text-main/80 transition-colors">
-      <i class="fa fa-arrow-left mr-2"></i> 回到首页
-    </a>
-  </div>
+<body class="font-inter bg-gray-light text-gray-dark antialiased">
+  <!-- 导航栏（与首页统一） -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-white/90 backdrop-blur-sm">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex justify-between items-center">
+        <a href="/guoziying/" class="text-main font-semibold text-xl">我的个人主页</a>
+        
+        <div class="hidden md:flex space-x-8">
+          <a href="/guoziying/" class="hover:text-main transition-colors">首页</a>
+          <a href="#" class="text-main font-medium">设计作品</a>
+          <a href="/guoziying/life.html" class="hover:text-main transition-colors">生活照</a>
+          <a href="/guoziying/#contact" class="hover:text-main transition-colors">联系我</a>
+        </div>
+        
+        <button id="mobileMenuBtn" class="md:hidden text-gray-dark focus:outline-none">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 w-full">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="/guoziying/" class="py-2 hover:text-main transition-colors">首页</a>
+        <a href="#" class="py-2 text-main font-medium">设计作品</a>
+        <a href="/guoziying/life.html" class="py-2 hover:text-main transition-colors">生活照</a>
+        <a href="/guoziying/#contact" class="py-2 hover:text-main transition-colors">联系我</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- 设计作品展示区域 -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
+  <!-- 作品展示区域 -->
+  <main class="pt-32 pb-16">
+    <div class="container mx-auto px-4 md:px-8">
       <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-light mb-12 text-center">
         我的 <span class="text-main font-semibold">设计作品</span>
       </h1>
       
-      <!-- 作品网格布局 -->
+      <!-- 作品网格（鼠标悬停动效+响应式） -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- 作品1：海报设计 -->
+        <!-- 作品1（原创无版权） -->
         <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
           <img src="https://picsum.photos/id/231/800/600" alt="节气海报设计" class="w-full h-64 object-cover">
           <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">春分节气海报</h3>
-            <p class="text-gray-600 text-sm">水墨风格与现代排版结合，传递传统节气之美</p>
+            <h3 class="text-xl font-medium mb-2">秋分节气海报</h3>
+            <p class="text-gray-600 text-sm">水墨风格与现代排版结合，原创节气视觉设计</p>
           </div>
         </div>
         
-        <!-- 作品2：包装设计 -->
+        <!-- 作品2 -->
         <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
           <img src="https://picsum.photos/id/241/800/600" alt="文创包装设计" class="w-full h-64 object-cover">
           <div class="p-5">
-            <h3 class="text-xl font-medium mb-2">苏绣文创礼盒包装</h3>
-            <p class="text-gray-600 text-sm">新中式风格，融合苏州非遗苏绣元素</p>
+            <h3 class="text-xl font-medium mb-2">传统手工艺礼盒包装</h3>
+            <p class="text-gray-600 text-sm">新中式风格，融合非遗元素的原创包装设计</p>
           </div>
         </div>
         
-        <!-- 作品3：UI设计 -->
+        <!-- 作品3 -->
         <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
           <img src="https://picsum.photos/id/251/800/600" alt="APP UI设计" class="w-full h-64 object-cover">
           <div class="p-5">
             <h3 class="text-xl font-medium mb-2">生活记录APP界面</h3>
-            <p class="text-gray-600 text-sm">简约清新风格，提升用户使用体验</p>
+            <p class="text-gray-600 text-sm">简约清新风格，提升用户体验的原创UI设计</p>
           </div>
         </div>
         
-        <!-- 可复制上面的作品卡片，新增更多设计作品 -->
+        <!-- 作品4 -->
         <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
           <img src="https://picsum.photos/id/261/800/600" alt="画册设计" class="w-full h-64 object-cover">
           <div class="p-5">
             <h3 class="text-xl font-medium mb-2">个人作品集画册</h3>
-            <p class="text-gray-600 text-sm">图文排版设计，展现个人创作历程</p>
+            <p class="text-gray-600 text-sm">图文排版设计，展现个人创作历程的原创画册</p>
+          </div>
+        </div>
+        
+        <!-- 作品5 -->
+        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://picsum.photos/id/271/800/600" alt="品牌LOGO设计" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-xl font-medium mb-2">文艺品牌LOGO设计</h3>
+            <p class="text-gray-600 text-sm">极简风格，传递品牌理念的原创LOGO设计</p>
+          </div>
+        </div>
+        
+        <!-- 作品6 -->
+        <div class="work-hover bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://picsum.photos/id/281/800/600" alt="展板设计" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-xl font-medium mb-2">艺术展主题展板</h3>
+            <p class="text-gray-600 text-sm">视觉冲击力强，突出展览主题的原创展板设计</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- 页脚 -->
-  <footer class="py-8 bg-gray-dark text-white text-center mt-12">
+  <!-- 页脚（与首页统一） -->
+  <footer class="py-8 bg-gray-dark text-white text-center">
     <div class="container mx-auto px-4">
-      <p class="text-white/70 text-sm">© 2025 郭紫莹的个人网站 | 设计作品均为原创</p>
+      <p class="text-white/70 text-sm">© 2025 我的个人网站 | 所有设计作品均为原创</p>
     </div>
   </footer>
+
+  <!-- 交互脚本 -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('py-5');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('py-5');
+      }
+    });
+    
+    // 移动端菜单开关
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
